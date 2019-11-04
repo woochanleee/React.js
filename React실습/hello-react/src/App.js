@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Counter from './Counter';
 
-class App extends Component {
-  render() {
-    const name = 'react';
-    return <div className="react">{name}</div>;
-  }
-}
+const App = () => {
+  return <Counter />
+};
 
 export default App;
