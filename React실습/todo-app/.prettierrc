@@ -1,0 +1,8 @@
+{
+    "singleQuote": true,
+    "semi": true,
+    "useTps": false,
+    "tapWidth": 2,
+    "trailingComma": "all",
+    "printWidth": 80
+}
