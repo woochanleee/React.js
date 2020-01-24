@@ -25,7 +25,7 @@ const Todos = ({
         <div>
             <form onSubmit={onSubmit}>
                 <input />
-                <buton type="submit">등록</buton>
+                <button type="submit">등록</button>
             </form>
             <div>
                 <TodoItem />
