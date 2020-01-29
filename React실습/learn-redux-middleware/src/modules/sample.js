@@ -26,7 +26,25 @@ export const getPost = id => async dispatch => {
     } catch (e) {
         dispatch({
             type: GET_POST_FAILURE,
-            payload: response.data,
+            payload: e,
+            error: true
+        }); // 에러 발생
+        throw e; // 나중에 컴포넌트단에서 에러를 조회할 수 있게 해 줌
+    }
+};
+
+export const getUsers = id => async dispatch => {
+    dispatch({ type: GET_USERS }); // 요청을 시작한 것을 알림
+    try {
+        const response = await api.getUsers();
+        dispatch({
+            type: GET_USERS_SUCCESS,
+            payload: response.data
+        }); // 요청 성공
+    } catch (e) {
+        dispatch({
+            type: GET_USERS_FAILURE,
+            payload: e,
             error: true
         }); // 에러 발생
         throw e; // 나중에 컴포넌트단에서 에러를 조회할 수 있게 해 줌
@@ -81,8 +99,16 @@ const sample = handleActions(
             loading: {
                 ...state.loading,
                 GET_USERS: false // 요청 완료
-            }
+            },
+            users: action.payload
         }),
+        [GET_USERS_FAILURE]: (state, action) => ({
+            ...state,
+            loading: {
+                ...state.loading,
+                GET_USERS: false // 요청 완료
+            }
+        })
     },
     initialState
 );
