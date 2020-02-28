@@ -6,6 +6,7 @@ const Sample = ({ loadingPost, loadingUsers, post, users }) => {
             <section>
                 <h1>포스트</h1>
                 {loadingPost && '로딩 중...'}
+                {console.log(loadingPost, post, loadingUsers, users)}
                 {!loadingPost && post && (
                     <div>
                         <h3>{post.title}</h3>
